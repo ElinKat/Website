@@ -10,7 +10,7 @@ import { useColorMode, useColorModeValue } from '@chakra-ui/react'
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <Container maxW="1140px" px={4} bg={useColorModeValue('gray.200', 'gray.900')}>
+    <Container maxW="100%" px={4} bg={useColorModeValue('gray.200', 'gray.900')}>
       <Flex
         h={16}
         alignItems="center"
@@ -29,10 +29,18 @@ const Navbar = () => {
         </Text>
 
         <HStack spacing={4} alignItems="center">
-          <Link as={RouterLink} to="/create">Create</Link>
-          <Button leftIcon={<PlusSquareIcon fontSize="20px" />}>
+          <Button
+            as={RouterLink}
+            to="/create"
+            leftIcon={<PlusSquareIcon fontSize="20px" />}
+            colorScheme="blue"
+          >
             Add Product
           </Button>
+          {/* <Link as={RouterLink} to="/create">Create</Link>
+          <Button leftIcon={<PlusSquareIcon fontSize="20px" />}>
+            Add Product
+          </Button> */}
 
           <Button onClick={toggleColorMode} leftIcon={colorMode === 'light' ? <FaMoon /> : <GoSun />}>
             {colorMode === 'light' ? 'Dark Mode' : 'Light Mode'}
