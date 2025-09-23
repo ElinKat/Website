@@ -13,6 +13,7 @@ export const getProducts = async (req, res) => {
 
 export const createProduct = async (req, res) => {
     const product = req.body; //req.body is the body of the request, user will send the data in the body of the request
+    console.log("product:", product);
 
     if(!product.name || !product.price || !product.description || !product.image) {
         return res.status(400).json({ success: false, message: 'All fields are required' });

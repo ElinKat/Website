@@ -7,8 +7,11 @@ import { GoSun } from "react-icons/go";
 import { useColorMode, useColorModeValue } from '@chakra-ui/react'
 
 
+
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+
+
   return (
     <Container maxW="100%" px={4} bg={useColorModeValue('gray.200', 'gray.900')}>
       <Flex
