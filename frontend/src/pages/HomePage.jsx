@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useProductStore } from '../store/product'
 import { useEffect } from 'react'
+import ProductCard from '../components/ProductCard'
 
 
 const HomePage = () => {
@@ -35,7 +36,9 @@ const HomePage = () => {
         w={"full"}
         >
 
-
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
         </SimpleGrid>	
 
 
