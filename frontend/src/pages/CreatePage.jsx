@@ -48,7 +48,7 @@ const CreatePage = () => {
     <Container maxW="100%" px={4}>
         <VStack spacing={8}>
             <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8} mt={20}>Create New Product</Heading>
-            <Box w={"full"} maxW={"md"} mx={"auto"} bg={useColorModeValue('gray.100', 'gray.900')} p={6} borderRadius={"lg"} boxShadow={"md"}>
+            <Box w={"full"} maxW={"md"} mx={"auto"} bg={useColorModeValue('gray.200', 'gray.900')} p={6} borderRadius={"lg"} boxShadow={"md"}>
                 <VStack spacing={4}>
                     <Input placeholder="Product Name" name="name" type="text" value={newProduct.name} onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })} />
                     <Input placeholder="Price" name="price" type="number" value={newProduct.price} onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })} />

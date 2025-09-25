@@ -42,7 +42,7 @@ const ProductCard = ({ product }) => {
                 title: 'Product deleted successfully',
                 description: message,
                 status: 'success',
-                duration: 3000,
+                duration: 2000,
                 isClosable: true,
             })
         }
@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
                 title: 'Product deletion failed',
                 description: message,
                 status: 'error',
-                duration: 3000,
+                duration: 2000,
                 isClosable: true,
             })
         }
@@ -81,6 +81,7 @@ const ProductCard = ({ product }) => {
                     title: 'No changes detected',
                     description: 'Please make some changes before updating',
                     status: 'warning',
+                    duration: 2000,
                 })
                 setIsUpdating(false);
                 return; // Don't proceed with update
@@ -92,8 +93,8 @@ const ProductCard = ({ product }) => {
             if(result && result.success) {
                 toast({
                     title: 'Product updated successfully',
-                    description: result.message,
                     status: 'success',
+                    duration: 2000,
                 })
                 // Force close the modal immediately
                 setModalOpen(false);
@@ -108,6 +109,7 @@ const ProductCard = ({ product }) => {
                     title: 'Product update failed',
                     description: result?.message || 'Unknown error',
                     status: 'error',
+                    duration: 2000,
                 })
                 // Don't close modal on failure so user can try again
             }
@@ -117,6 +119,7 @@ const ProductCard = ({ product }) => {
                 title: 'Product update failed',
                 description: 'Network error occurred',
                 status: 'error',
+                duration: 2000,
             })
         } finally {
             setIsUpdating(false);
