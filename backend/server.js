@@ -16,9 +16,19 @@ app.use(express.json()); // allow us to accept JSON data in the req.body
 
 app.use('/api/products', productRoutes);
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('__dirname:', __dirname);
+console.log('Frontend dist path:', path.join(__dirname, '/frontend/dist'));
+
 if (process.env.NODE_ENV === 'production') {
+    console.log('Serving static files from:', path.join(__dirname, '/frontend/dist'));
     app.use(express.static(path.join(__dirname, '/frontend/dist')));
-    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
+    app.get('*', (req, res) => {
+        console.log('Serving index.html for route:', req.path);
+        res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
+    });
+} else {
+    console.log('Not in production mode, not serving static files');
 }
 
 
